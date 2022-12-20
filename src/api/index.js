@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const instance = axios.create({
-	baseURL: "https://api.chainbase.online/",
+	baseURL: process.env.REACT_APP_ENDPOINT,
 	headers: {
 		'Content-Type': 'application/json',
-        'X-API-KEY': '2J7q2Mn4MxrLne8gCx2M00EnZre',
+    'X-API-KEY': process.env.REACT_APP_API_KEY,
 	},
 })
 export default instance
