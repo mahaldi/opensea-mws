@@ -7,4 +7,14 @@ const instance = axios.create({
     'X-API-KEY': process.env.REACT_APP_API_KEY,
 	},
 })
-export default instance
+
+class ApiCollections {
+	constructor() {
+		this.api = instance
+	}
+
+	getTrendingCollection() {
+		return this.api.get(`collection/trending?chain_id=1&range=1h&sort=volume_desc&exchange_name=opensea&limit=20&page=1`)
+	}
+}
+export default ApiCollections
