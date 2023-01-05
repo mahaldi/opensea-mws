@@ -41,6 +41,10 @@ const theme = (mode = 'dark') => createTheme({
 				}
 			}
 		}
+	},
+	typography: {
+		htmlFontSize: 10,
+		fontSize: 16,
 	}
 });
 

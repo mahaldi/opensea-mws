@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import initialState from 'redux/initialState'
 import configureStore from 'redux/configureStore'
+import './assets/global.css'
 
 const store = configureStore(initialState)
 
