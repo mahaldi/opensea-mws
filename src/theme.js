@@ -33,6 +33,15 @@ const theme = (mode = 'dark') => createTheme({
     // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.2,
   },
+	components: {
+		MuiButtonBase: {
+			styleOverrides: {
+				root: {
+					textTransform: 'none !important',
+				}
+			}
+		}
+	}
 });
 
 export default theme;
