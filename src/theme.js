@@ -1,5 +1,10 @@
 import { createTheme } from '@mui/material/styles';
-
+export const colors = {
+	grey: {
+		dark: 'rgb(138, 147, 155)',
+		light: 'rgb(112, 122, 131)',
+	}
+}
 const theme = (mode = 'dark') => createTheme({
   palette: {
 		mode: mode,
@@ -25,6 +30,7 @@ const theme = (mode = 'dark') => createTheme({
       dark: '#ef6c00',
       contrastText: 'rgba(0, 0, 0, 0.87)',
     },
+		grey: colors.grey,
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
     contrastThreshold: 3,
@@ -45,6 +51,9 @@ const theme = (mode = 'dark') => createTheme({
 	typography: {
 		htmlFontSize: 10,
 		fontSize: 16,
+		h1: {
+			fontSize: '4.8rem',
+		}
 	}
 });
 
