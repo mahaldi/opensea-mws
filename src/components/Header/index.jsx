@@ -1,6 +1,4 @@
 import React from 'react'
-// import Button from '@mui/material/Button';
-// import { Link } from 'react-router-dom'
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from 'assets/images/opensea-logo.svg'
 import TextField from '@mui/material/TextField';
@@ -11,17 +9,15 @@ import { Navbar } from './style'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
+import IconButton from '@mui/material/IconButton';
 
-export const Header = () => {
-	// const { onChangeTheme, mode } = props
-	// const handleOnChangingTheme = () => {
-	// 	onChangeTheme(mode === 'light' ? 'dark' : 'light')
-	// }
+export const Header = props => {
+	const { onChangeTheme, mode } = props
+	const handleOnChangingTheme = () => {
+		onChangeTheme(mode === 'light' ? 'dark' : 'light')
+	}
 	return (
 		<>
-			{/* <Button onClick={handleOnChangingTheme}>toggle theme</Button>
-			<Link to="/">home</Link>
-			<Link to="/profile">Profile</Link> */}
 			<Navbar>
 				<Grid container spacing={3} display="flex" alignItems="center" justifyContent="center" style={{width: '100%'}}>
 					<Grid container spacing={2} xs="auto">
@@ -58,13 +54,19 @@ export const Header = () => {
 						</Grid>
 						<Grid xs="auto" container>
 							<Grid xs="auto">
-								<AccountCircle />
+								<IconButton onClick={handleOnChangingTheme}>
+									<AccountCircle />
+								</IconButton>
 							</Grid>
 							<Grid xs="auto">
-								<AccountBalanceWalletOutlinedIcon />
+								<IconButton>
+									<AccountBalanceWalletOutlinedIcon />
+								</IconButton>
 							</Grid>
 							<Grid xs="auto">
-								<ShoppingCartOutlinedIcon />
+								<IconButton>
+									<ShoppingCartOutlinedIcon />
+								</IconButton>
 							</Grid>
 						</Grid>
 					</Grid>
