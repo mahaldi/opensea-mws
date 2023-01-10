@@ -3,6 +3,10 @@ export const colors = {
 	grey: {
 		dark: 'rgb(138, 147, 155)',
 		light: 'rgb(112, 122, 131)',
+	},
+	black: {
+		dark: 'rgb(48, 51, 57)',
+		light: 'rgb(255, 255, 255)',
 	}
 }
 const theme = (mode = 'dark') => createTheme({
