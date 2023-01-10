@@ -53,6 +53,13 @@ const theme = (mode = 'dark') => createTheme({
 		fontSize: 16,
 		h1: {
 			fontSize: '4.8rem',
+		},
+		h2: {
+			fontSize: '4.rem'
+		},
+		h3: {
+			fontSize: '3.2rem',
+			fontWeight: 600,
 		}
 	}
 });
