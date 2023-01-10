@@ -26,7 +26,9 @@ const Layout = (props) => {
 		<>
 			<Grid container direction="column" spacing={3}>
 				<Header mode={mode} onChangeTheme={onChangeTheme} />
-				{children}
+				<div style={{padding: '0 64px'}}>
+					{children}
+				</div>
 			</Grid>
 		</>
 	)
