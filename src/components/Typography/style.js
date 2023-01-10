@@ -1,12 +1,12 @@
 import {
-  createTheme,
   responsiveFontSizes,
 } from '@mui/material/styles';
+import globalTheme from 'theme'
 
-let theme = createTheme();
+let theme = globalTheme();
 theme = responsiveFontSizes(theme);
 
 theme.typography.h1 = {
-	fontSize: '48px',
+	fontSize: '4.8rem',
 }
 export default theme
