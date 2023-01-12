@@ -29,3 +29,9 @@ export const CheckVerified = (
 				</path><path d="M13.5 17.625L10.875 15L10 15.875L13.5 19.375L21 11.875L20.125 11L13.5 17.625Z" fill="white" stroke="white"></path></svg>
 	</>
 )
+
+export const FooterTwoWrapper = styledComponent.div`
+	position: relative;
+	height: 8rem;
+	padding: 1.6rem;
+`
