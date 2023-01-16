@@ -13,6 +13,7 @@ export const CardGridWrapper = styled(Grid)`
 	box-shadow: rgb(0 0 0 / 8%) 0px 4px 16px;
 	transition: box-shadow 0.25s ease-in-out 0s, transform 0.25s ease 0s;
 	background-color: ${({ theme }) => theme.palette.mode === 'dark' ? colors.black.dark : colors.black.light};
+	margin: 4px 0 16px;
 `
 export const IconWrapper = styledComponent.div`
 	margin-left: 4px;
