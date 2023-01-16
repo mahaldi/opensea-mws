@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Header, Footer } from 'components'
-import Grid from '@mui/material/Unstable_Grid2';
 import { useLocation } from 'react-router-dom'
 import { Checkpoints } from 'services'
 import { loadHome } from 'api/home'
-import { FooterWrapper, FooterContainer } from './style'
+import { FooterWrapper, FooterContainer, Container } from './style'
+
 const Layout = (props) => {
 	const { children, mode, onChangeTheme } = props
 	const location = useLocation()
@@ -24,17 +24,15 @@ const Layout = (props) => {
 	}, [])
 	return (
 		<>
-			<Grid container direction="column" spacing={3}>
+			<Container container direction="column" spacing={3}>
 				<Header mode={mode} onChangeTheme={onChangeTheme} />
-				<div style={{padding: '0 64px'}}>
-					{children}
-				</div>
+				{children}
 				<FooterWrapper>
 					<FooterContainer>
 						<Footer />
 					</FooterContainer>
 				</FooterWrapper>
-			</Grid>
+			</Container>
 		</>
 	)
 }
