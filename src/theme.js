@@ -55,6 +55,7 @@ const theme = (mode = 'dark') => createTheme({
 	typography: {
 		htmlFontSize: 10,
 		fontSize: 16,
+		fontFamily: 'Poppins, sans-serif',
 		h1: {
 			fontSize: '4.8rem',
 		},
