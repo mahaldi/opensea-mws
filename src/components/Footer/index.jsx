@@ -3,7 +3,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Typography, Button, Image } from 'components'
 import { TextField, Divider } from '@mui/material';
 import { TwitterIcon, IconWrapper, InstagramIcon, DiscordIcon, RedditIcon, YoutubeIcon, TiktokIcon, ListWrapper, FooterLinkWrapper } from './style'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import OpenSeaWhite from 'assets/images/opensea-white.svg'
 import { FooterLinks } from 'services/utils/Constants'
 
@@ -33,10 +33,10 @@ export const Footer = () => {
 			icon: TiktokIcon,
 			to: '/profile'
 		},
-		{
-			icon: <EmailOutlinedIcon />,
-			to: '/profile'
-		},
+		// {
+		// 	icon: <EmailOutlinedIcon />,
+		// 	to: '/profile'
+		// },
 	]
 	return (
 		<>
