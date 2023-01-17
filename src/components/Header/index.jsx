@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from 'assets/images/opensea-logo.svg'
 import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import { Typography } from 'components'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Navbar } from './style'
@@ -35,7 +35,7 @@ export const Header = props => {
 							<img src={Logo} style={{ width: '40px', height: '40px' }} alt="logo" />
 						</Grid>
 						<Grid xs>
-							<Typography variant="h5">OpenSea</Typography>
+							<Typography size="lh-medium" weight="medium">OpenSea</Typography>
 						</Grid>
 					</Grid>
 					<Grid xs >
@@ -48,18 +48,18 @@ export const Header = props => {
 						}} />
 					</Grid>
 					<Grid xs="auto" container >
-						<Grid xs="auto" container>
+						<Grid xs="auto" container alignItems="center">
 							<Grid xs="auto">
-								<Typography variant='h6'>Explore</Typography>
+								<Typography size="medium" weight="medium">Explore</Typography>
 							</Grid>
 							<Grid xs="auto">
-								<Typography variant='h6'>Drops</Typography>
+								<Typography size="medium" weight="medium">Drops</Typography>
 							</Grid>
 							<Grid xs="auto">
-								<Typography variant='h6'>Stats</Typography>
+								<Typography size="medium" weight="medium">Stats</Typography>
 							</Grid>
 							<Grid xs="auto">
-								<Typography variant='h6'>Resources</Typography>
+								<Typography size="medium" weight="medium">Resources</Typography>
 							</Grid>
 						</Grid>
 						<Grid xs="auto" container>
