@@ -16,7 +16,6 @@ export const FooterContainer = styledComponent.div`
 
 export const Container = styled(Grid)`
 	> div:nth-of-type(2) {
-		padding-left: 64px;
-		padding-right: 64px;
+
 	}
 `

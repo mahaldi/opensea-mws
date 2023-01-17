@@ -16,6 +16,21 @@ export const StyledTabpanel = styled(TabPanel)`
 export const ContainerTwin = styled(Grid)`
 	padding: 0;
 `
+
+export const GridSection = styled(Grid)`
+	padding-left: 64px;
+	padding-right: 64px;
+`
+
+export const ContainerHome = styled(Grid)`
+`
+export const BannerHome = styled(Grid)`
+	padding: 150px 64px 0 64px;
+	background-image: url(${HomeGradientDark});
+	background-size: cover;
+	background-position: 50% 50%;
+`
+
 export const SliderWrapper = styledComponent.div`
 	width: 100%;
 	overflow: visible;

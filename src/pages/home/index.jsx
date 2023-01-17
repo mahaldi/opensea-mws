@@ -6,7 +6,7 @@ import { actions } from 'actions'
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton } from './style'
+import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection } from './style'
 import Link from '@mui/material/Link';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper'
@@ -23,11 +23,24 @@ const Home = () => {
 
 	return (
 		<>
-			<Grid xs={12} container direction="column" spacing={0}>
-				<Grid xs={12}>
-					<Typography align="center" variant="h1" weight="bold">Explore, collect, and sell NFTs</Typography>
-				</Grid>
-				<Grid xs={12}>
+			<ContainerHome xs={12} container direction="column" spacing={0}>
+				<BannerHome xs={12} container direction="column" spacing={0}>
+					<Grid xs={12}>
+						<Typography align="center" variant="h1" weight="bold">Explore, collect, and sell NFTs</Typography>
+					</Grid>
+					<Grid xs={12}>
+						<SliderWrapper>
+							<Swiper slidesPerView={4} spaceBetween={16}>
+								{[1,2,3,4,5,6,7].map(val => (
+									<SwiperSlide key={val}>
+										<Card type={3} />
+									</SwiperSlide>
+								))}
+							</Swiper>
+						</SliderWrapper>
+					</Grid>
+				</BannerHome>
+				<GridSection xs={12}>
 					<TabContext value={tab}>
 						<TabList onChange={handleTab} textColor="inherit">
 							<Tab label={<Typography variant="h6">Trending</Typography>} value="0" />
@@ -45,11 +58,11 @@ const Home = () => {
 						</StyledTabpanel>
 						<StyledTabpanel value="1">Value Item Two</StyledTabpanel>
 					</TabContext>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<Typography align="left" variant="h3">Notable Collections</Typography>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
 							slidesPerView={6}
@@ -78,11 +91,11 @@ const Home = () => {
 							</StyledIconButton>
 						</NavigationSwiper>
 					</SliderWrapper>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<Typography align="left" variant="h3">Top Collector buys today</Typography>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
 							slidesPerView={5}
@@ -97,11 +110,11 @@ const Home = () => {
 							))}
 						</Swiper>
 					</SliderWrapper>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<Typography align="left" variant="h3">Photography NFT spotlight</Typography>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
 							slidesPerView={5}
@@ -116,8 +129,8 @@ const Home = () => {
 							))}
 						</Swiper>
 					</SliderWrapper>
-				</Grid>
-				<Grid xs={12} container direction="row" justifyContent="space-between">
+				</GridSection>
+				<GridSection xs={12} container direction="row" justifyContent="space-between">
 					<Grid xs>
 						<Typography align="left" variant="h3">NFT 101</Typography>
 						<Typography variant="caption">Get comfortable with the basics.</Typography>
@@ -125,8 +138,8 @@ const Home = () => {
 					<Grid xs="auto">
 						<Button variant="outlined">Learn more</Button>
 					</Grid>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
 							slidesPerView={5}
@@ -141,11 +154,11 @@ const Home = () => {
 							))}
 						</Swiper>
 					</SliderWrapper>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<Typography align="left" variant="h3">Browse by Category</Typography>
-				</Grid>
-				<Grid xs={12}>
+				</GridSection>
+				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
 							slidesPerView={5}
@@ -160,8 +173,8 @@ const Home = () => {
 							))}
 						</Swiper>
 					</SliderWrapper>
-				</Grid>
-			</Grid>
+				</GridSection>
+			</ContainerHome>
 		</>
 	)
 }
