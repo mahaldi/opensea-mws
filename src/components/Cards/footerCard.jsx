@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from 'components'
 import Grid from '@mui/material/Unstable_Grid2';
-import { CheckVerified, IconWrapper, ContainerNoPadding, FooterTwoWrapper } from './style'
+import { CheckVerified, IconWrapper, ContainerNoPadding, FooterTwoWrapper, FooterThreeWrapper } from './style'
 
 const FooterOne = props => {
 	return (
@@ -38,6 +38,16 @@ const FooterTwo = props => {
 		</>
 	)
 }
+
+const FooterThree = props => {
+	return (
+		<FooterThreeWrapper container direction="column" spacing={0}>
+			<Typography size="medium" weight="medium">Lil pudgys</Typography>
+			<Typography size="small" weight="normal">Floor: 0,14 ETH</Typography>
+		</FooterThreeWrapper>
+	)
+}
+
 const FooterCard = props => {
 	const { type, data } = props
 
@@ -45,6 +55,7 @@ const FooterCard = props => {
 		<>
 			{type === 1 && <FooterOne data={data} />}
 			{type === 2 && <FooterTwo data={data} />}
+			{type === 3 && <FooterThree data={data} />}
 		</>
 	)
 }

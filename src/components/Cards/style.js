@@ -14,6 +14,7 @@ export const CardGridWrapper = styled(Grid)`
 	transition: box-shadow 0.25s ease-in-out 0s, transform 0.25s ease 0s;
 	background-color: ${({ theme }) => theme.palette.mode === 'dark' ? colors.black.dark : colors.black.light};
 	margin: 4px 0 16px;
+	position: relative;
 `
 export const IconWrapper = styledComponent.div`
 	margin-left: 4px;
@@ -35,4 +36,10 @@ export const FooterTwoWrapper = styledComponent.div`
 	position: relative;
 	height: 8rem;
 	padding: 1.6rem;
+`
+
+export const FooterThreeWrapper = styled(Grid)`
+	position: absolute;
+	bottom: 0;
+	left: 0;
 `
