@@ -6,7 +6,7 @@ import { actions } from 'actions'
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection, GridTitle } from './style'
+import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection, GridTitle, SwiperBreakpoints } from './style'
 import Link from '@mui/material/Link';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper'
@@ -98,6 +98,7 @@ const Home = () => {
 								nextEl: '.next',
 
 							}}
+							breakpoints={SwiperBreakpoints}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -131,6 +132,7 @@ const Home = () => {
 								nextEl: '.nextTopCollector',
 
 							}}
+							breakpoints={SwiperBreakpoints}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -164,6 +166,7 @@ const Home = () => {
 								nextEl: '.nextPhotography',
 
 							}}
+							breakpoints={SwiperBreakpoints}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -195,8 +198,9 @@ const Home = () => {
 				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
-							slidesPerView={5}
+							slidesPerView={6}
 							spaceBetween={16}
+							breakpoints={SwiperBreakpoints}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -214,8 +218,9 @@ const Home = () => {
 				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
-							slidesPerView={5}
+							slidesPerView={6}
 							spaceBetween={16}
+							breakpoints={SwiperBreakpoints}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>

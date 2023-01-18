@@ -62,3 +62,20 @@ export const StyledIconButton = styled(IconButton)`
 	background-color: ${({ theme }) => theme.palette.mode === 'dark' ? colors.black.dark : colors.black.light};
 	box-shadow: rgb(0 0 0 / 15%) 0px 4px 10px;
 `
+export const SwiperBreakpoints = {
+	1600: {
+		slidesPerView: 6,
+	},
+	1200: {
+		slidesPerView: 5,
+	},
+	1024: {
+		slidesPerView: 4,
+	},
+	768: {
+		slidesPerView: 3,
+	},
+	600: {
+		slidesPerView: 2,
+	}
+}
