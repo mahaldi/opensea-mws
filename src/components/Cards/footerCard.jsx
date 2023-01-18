@@ -16,11 +16,11 @@ const FooterOne = props => {
 			</Grid>
 			<Grid xs={12} container direction="row" spacing={0}>
 				<Grid xs={6}>
-					<Typography size="tiny" weight="medium">FLOOR</Typography>
+					<Typography size="tiny" weight="medium" color="grey">FLOOR</Typography>
 					<Typography size="medium" weight="medium">1.99 ETH</Typography>
 				</Grid>
 				<Grid xs={6}>
-					<Typography size="tiny" weight="medium">TOTAL VOLUME</Typography>
+					<Typography size="tiny" weight="medium" color="grey">TOTAL VOLUME</Typography>
 					<Typography size="medium" weight="medium">26K ETH</Typography>
 				</Grid>
 			</Grid>
