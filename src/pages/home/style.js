@@ -3,6 +3,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Grid from '@mui/material/Unstable_Grid2';
 import { default as styledComponent } from 'styled-components'
 import HomeGradientDark from 'assets/images/home-gradient-dark.png'
+import HomeGradientLight from 'assets/images/home-gradient-light.png'
 import { colors } from 'theme'
 import IconButton from '@mui/material/IconButton';
 
@@ -21,12 +22,16 @@ export const GridSection = styled(Grid)`
 	padding-left: 64px;
 	padding-right: 64px;
 `
-
+export const GridTitle = styled(Grid)`
+	margin-top: 5.6rem;
+	margin-bottom: 4rem;
+`
 export const ContainerHome = styled(Grid)`
 `
 export const BannerHome = styled(Grid)`
-	padding: 150px 64px 0 64px;
-	background-image: url(${HomeGradientDark});
+	padding: 70px 64px 0 64px;
+	margin-top: -70px;
+	background-image: url(${({ theme }) => theme.palette.mode === 'dark' ? HomeGradientDark : HomeGradientLight });
 	background-size: cover;
 	background-position: 50% 50%;
 `
@@ -40,10 +45,10 @@ export const SliderWrapper = styledComponent.div`
 	margin-bottom: 6.6rem;
 `
 export const NavigationSwiper = styledComponent.div`
-	.prev {
+	.prev, .prevBanner, .prevTopCollector, .prevPhotography {
 		left: -24px;
 	}
-	.next {
+	.next, .nextBanner, .nextTopCollector, .nextPhotography {
 		right: -24px;
 	}
 `

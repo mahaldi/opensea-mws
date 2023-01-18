@@ -6,7 +6,7 @@ import { actions } from 'actions'
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection } from './style'
+import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection, GridTitle } from './style'
 import Link from '@mui/material/Link';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper'
@@ -25,18 +25,34 @@ const Home = () => {
 		<>
 			<ContainerHome xs={12} container direction="column" spacing={0}>
 				<BannerHome xs={12} container direction="column" spacing={0}>
-					<Grid xs={12}>
+					<GridTitle xs={12}>
 						<Typography align="center" variant="h1" weight="bold">Explore, collect, and sell NFTs</Typography>
-					</Grid>
+					</GridTitle>
 					<Grid xs={12}>
 						<SliderWrapper>
-							<Swiper slidesPerView={4} spaceBetween={16}>
+							<Swiper
+							slidesPerView={4}
+							spaceBetween={16}
+							modules={[Navigation]}
+							navigation={{
+								prevEl: '.prevBanner',
+								nextEl: '.nextBanner',
+
+							}}>
 								{[1,2,3,4,5,6,7].map(val => (
 									<SwiperSlide key={val}>
-										<Card type={3} />
+										<Card type={3} data={{ src: 'https://i.seadn.io/s/production/3cd2b0b2-a110-4924-b91e-1f6618dc1e21.png?auto=format&w=828'}}/>
 									</SwiperSlide>
 								))}
 							</Swiper>
+							<NavigationSwiper>
+								<StyledIconButton className="prevBanner" disableRipple>
+									<ChevronLeftIcon />
+								</StyledIconButton>
+								<StyledIconButton className="nextBanner" disableRipple>
+									<ChevronRightIcon />
+								</StyledIconButton>
+							</NavigationSwiper>
 						</SliderWrapper>
 					</Grid>
 				</BannerHome>
@@ -56,7 +72,16 @@ const Home = () => {
 								</Grid>
 							</ContainerTwin>
 						</StyledTabpanel>
-						<StyledTabpanel value="1">Value Item Two</StyledTabpanel>
+						<StyledTabpanel value="1">
+							<ContainerTwin container direction="row" spacing={0}>
+								<Grid xs={6}>
+									<NftRow />
+								</Grid>
+								<Grid xs={6}>
+									<NftRow />
+								</Grid>
+							</ContainerTwin>
+						</StyledTabpanel>
 					</TabContext>
 				</GridSection>
 				<GridSection xs={12}>
@@ -98,8 +123,14 @@ const Home = () => {
 				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
-							slidesPerView={5}
+							slidesPerView={6}
 							spaceBetween={16}
+							modules={[Navigation]}
+							navigation={{
+								prevEl: '.prevTopCollector',
+								nextEl: '.nextTopCollector',
+
+							}}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -109,6 +140,14 @@ const Home = () => {
 								</SwiperSlide>
 							))}
 						</Swiper>
+						<NavigationSwiper>
+							<StyledIconButton className="prevTopCollector" disableRipple>
+								<ChevronLeftIcon />
+							</StyledIconButton>
+							<StyledIconButton className="nextTopCollector" disableRipple>
+								<ChevronRightIcon />
+							</StyledIconButton>
+						</NavigationSwiper>
 					</SliderWrapper>
 				</GridSection>
 				<GridSection xs={12}>
@@ -117,8 +156,14 @@ const Home = () => {
 				<GridSection xs={12}>
 					<SliderWrapper>
 						<Swiper
-							slidesPerView={5}
+							slidesPerView={6}
 							spaceBetween={16}
+							modules={[Navigation]}
+							navigation={{
+								prevEl: '.prevPhotography',
+								nextEl: '.nextPhotography',
+
+							}}
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -128,6 +173,14 @@ const Home = () => {
 								</SwiperSlide>
 							))}
 						</Swiper>
+						<NavigationSwiper>
+							<StyledIconButton className="prevPhotography" disableRipple>
+								<ChevronLeftIcon />
+							</StyledIconButton>
+							<StyledIconButton className="nextPhotography" disableRipple>
+								<ChevronRightIcon />
+							</StyledIconButton>
+						</NavigationSwiper>
 					</SliderWrapper>
 				</GridSection>
 				<GridSection xs={12} container direction="row" justifyContent="space-between">
