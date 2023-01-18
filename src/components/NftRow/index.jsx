@@ -7,7 +7,7 @@ import {Link as LinkRouter} from 'react-router-dom'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import { ContainerNoPadding } from './style'
+import { ContainerNoPadding, StyledListItem, StyledListButton } from './style'
 
 export const NftRow = props => {
 	const {index, src, alt, name, volume, floorPrice} = props
@@ -17,21 +17,25 @@ export const NftRow = props => {
 		<>
 			<ContainerNoPadding container direction="column" spacing={0}>
 				<ContainerNoPadding container direction="row" columns={10}>
-					<Grid xs={6}><Typography variant="caption">COLLECTION</Typography></Grid>
-					<Grid xs={2}><Typography variant="caption">FLOOR PRICE</Typography></Grid>
-					<Grid xs={2}><Typography variant="caption">VOLUME</Typography></Grid>
+					<Grid xs={6}><Typography variant="caption" color="grey" size="tiny" weight="medium">COLLECTION</Typography></Grid>
+					<Grid xs={2}><Typography variant="caption" color="grey" size="tiny" weight="medium">FLOOR PRICE</Typography></Grid>
+					<Grid xs={2}><Typography variant="caption" color="grey" size="tiny" weight="medium">VOLUME</Typography></Grid>
 				</ContainerNoPadding>
-				<List component={Grid} container direction="row" columns={10}>
+				<List component={Grid} container>
 					{[1,2,3].map(val => (
-						<ListItem key={val} component={(propsList) => <MuiLink component={NavLink} to="profile" {...propsList} color="inherit"/>}>
-							<ListItemButton>
-								<Grid xs={1}><Typography color="grey" weight="medium" size="lh-small">{val}</Typography></Grid>
-								<Grid xs={2}><Image src={src} alt={alt} width={72} height={72}/></Grid>
-								<Grid xs={3}><Typography size="medium" weight="medium">{name}</Typography></Grid>
-								<Grid xs={2}><Typography size="medium" weight="medium">{floorPrice}</Typography></Grid>
-								<Grid xs={2}><Typography size="medium" weight="medium">{volume}</Typography></Grid>
-							</ListItemButton>
-						</ListItem>
+						<StyledListItem key={val} component={(propsList) => <MuiLink component={NavLink} to="profile" {...propsList} color="inherit"/>}>
+							<StyledListButton>
+								<ContainerNoPadding xs container direction="row" columns={10} alignItems="center">
+									<ContainerNoPadding container xs={6} direction="row" spacing={0} alignItems="center" columns={10}>
+										<Grid xs={0.5}><Typography color="grey" weight="medium" size="lh-small">{val}</Typography></Grid>
+										<Grid xs="auto"><Image src={src} alt={alt} width={72} height={72}/></Grid>
+										<Grid xs="auto"><Typography size="medium" weight="medium" style={{ paddingLeft: '2.4rem'}}>{name}</Typography></Grid>
+									</ContainerNoPadding>
+									<Grid xs={2}><Typography size="medium" weight="medium">{floorPrice}</Typography></Grid>
+									<Grid xs={2}><Typography size="medium" weight="medium">{volume}</Typography></Grid>
+								</ContainerNoPadding>
+							</StyledListButton>
+						</StyledListItem>
 					))}
 				</List>
 			</ContainerNoPadding>
