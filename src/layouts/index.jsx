@@ -9,7 +9,6 @@ const Layout = (props) => {
 	const { children, mode, onChangeTheme } = props
 	const location = useLocation()
 	const { pathname } = location
-	console.log('location', location)
 
 	useEffect(() => {
 		switch(pathname) {
