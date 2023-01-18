@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from 'assets/images/opensea-logo.svg'
 import TextField from '@mui/material/TextField';
@@ -26,10 +26,29 @@ export const Header = props => {
 	const [openProfile, setOpenProfile] = useState(null)
 	const themeMode = get(useTheme(), 'palette.mode')
 
+	useEffect(() => {
+		const navbar = document.getElementById('navbar')
+		window.addEventListener('scroll', () => {
+			if(window.scrollY === 0) {
+				navbar.style.backgroundColor = 'transparent'
+			} else {
+				navbar.style.removeProperty('background-color')
+			}
+		})
+		return () => {
+			window.removeEventListener('scroll', () => {})
+		}
+	}, [])
+
+	useEffect(() => {
+		const navbar = document.getElementById('navbar')
+		if(navbar)
+			navbar.style.backgroundColor = 'transparent'
+	}, [])
 	return (
 		<>
-			<Navbar themeMode={themeMode}>
-				<Grid container spacing={3} display="flex" alignItems="center" justifyContent="center" style={{ width: '100%' }}>
+			<Navbar themeMode={themeMode} id="navbar">
+				<Grid container spacing={3} display="flex" alignItems="center" style={{ width: '100%' }}>
 					<Grid container spacing={2} xs="auto">
 						<Grid style={{ width: '40px', padding: '0' }}>
 							<img src={Logo} style={{ width: '40px', height: '40px' }} alt="logo" />
