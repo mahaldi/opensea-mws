@@ -99,7 +99,7 @@ export const Footer = () => {
 								<Grid xs>
 									<ListWrapper>
 										{footerLink.list.map(list => (
-											<FooterLinkWrapper>
+											<FooterLinkWrapper key={list.name}>
 												<Typography size="small">{list.name}</Typography>
 											</FooterLinkWrapper>
 										))}
