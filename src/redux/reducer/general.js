@@ -1,4 +1,4 @@
-export default (state = {}, { type, payload }) => {
+const general = (state = {}, { type, payload }) => {
   switch (type) {
     case 'UPDATE_TRENDING_COLLECTION':
       return { ...state, trendingCollection: payload }
@@ -6,3 +6,5 @@ export default (state = {}, { type, payload }) => {
       return state
   }
 }
+
+export default general

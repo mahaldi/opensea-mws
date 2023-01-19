@@ -5,12 +5,10 @@ import { Typography } from 'components';
 import Link from '@mui/material/Link';
 import {Link as LinkRouter} from 'react-router-dom'
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import { ContainerNoPadding, StyledListItem, StyledListButton } from './style'
 
 export const NftRow = props => {
-	const {index, src, alt, name, volume, floorPrice} = props
+	const {src, alt, name, volume, floorPrice} = props
 	const MuiLink = React.forwardRef((props, ref) => <Link {...props} ref={ref}/>)
 	const NavLink = React.forwardRef((props, ref) => <LinkRouter {...props} ref={ref}/>)
 	return (

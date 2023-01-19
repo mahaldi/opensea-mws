@@ -11,7 +11,7 @@ const Layout = (props) => {
 	const { pathname } = location
 
 	useEffect(() => {
-		switch(pathname) {
+		switch (pathname) {
 			case Checkpoints.home:
 				return loadHome()
 			case Checkpoints.profile:
@@ -20,7 +20,7 @@ const Layout = (props) => {
 			default:
 				console.log('on default loader')
 		}
-	}, [])
+	}, [pathname])
 	return (
 		<>
 			<Container container direction="column" spacing={3}>
