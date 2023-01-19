@@ -9,7 +9,7 @@ import TabList from '@mui/lab/TabList';
 import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection, GridTitle, SwiperBreakpoints } from './style'
 import Link from '@mui/material/Link';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from 'swiper'
+import { Navigation, Autoplay } from 'swiper'
 import "swiper/css";
 import 'swiper/css/navigation';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -31,14 +31,18 @@ const Home = () => {
 					<Grid xs={12}>
 						<SliderWrapper>
 							<Swiper
-							slidesPerView={4}
-							spaceBetween={16}
-							modules={[Navigation]}
-							navigation={{
-								prevEl: '.prevBanner',
-								nextEl: '.nextBanner',
-
-							}}>
+								slidesPerView={4}
+								spaceBetween={16}
+								modules={[Navigation, Autoplay]}
+								navigation={{
+									prevEl: '.prevBanner',
+									nextEl: '.nextBanner',
+								}}
+								autoplay={{
+									delay: 3000,
+								}}
+								loop
+							>
 								{[1,2,3,4,5,6,7].map(val => (
 									<SwiperSlide key={val}>
 										<Card type={3} data={{ src: 'https://i.seadn.io/s/production/3cd2b0b2-a110-4924-b91e-1f6618dc1e21.png?auto=format&w=828'}}/>
@@ -99,6 +103,7 @@ const Home = () => {
 
 							}}
 							breakpoints={SwiperBreakpoints}
+							loop
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -133,6 +138,7 @@ const Home = () => {
 
 							}}
 							breakpoints={SwiperBreakpoints}
+							loop
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -167,6 +173,7 @@ const Home = () => {
 
 							}}
 							breakpoints={SwiperBreakpoints}
+							loop
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -201,6 +208,7 @@ const Home = () => {
 							slidesPerView={6}
 							spaceBetween={16}
 							breakpoints={SwiperBreakpoints}
+							loop
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
@@ -221,6 +229,7 @@ const Home = () => {
 							slidesPerView={6}
 							spaceBetween={16}
 							breakpoints={SwiperBreakpoints}
+							loop
 						>
 							{[1, 2, 3, 4, 5, 6, 7].map(val => (
 								<SwiperSlide key={val}>
