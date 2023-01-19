@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from 'assets/images/opensea-logo.svg'
 import TextField from '@mui/material/TextField';
-import { Typography } from 'components'
+import { Typography, Image } from 'components'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
-import { Navbar } from './style'
+import { Navbar, DialogConnectContainer, StyledDialog, ConnectCaptionWrapper, ConnectTittleWrapper } from './style'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
@@ -17,6 +17,13 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Switch from '@mui/material/Switch';
 import {  useTheme } from '@mui/material/styles'
 import { get } from 'lodash'
+import { ethers } from 'ethers'
+import Divider from '@mui/material/Divider'
+import MetamaskFox from 'assets/images/metamask-fox.svg'
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import Link from '@mui/material/Link'
 
 export const Header = props => {
 	const { onChangeTheme, mode } = props
@@ -24,6 +31,7 @@ export const Header = props => {
 		onChangeTheme(mode === 'light' ? 'dark' : 'light')
 	}
 	const [openProfile, setOpenProfile] = useState(null)
+	const [openConnect, setOpenConnect] = useState(false)
 	const themeMode = get(useTheme(), 'palette.mode')
 
 	useEffect(() => {
@@ -45,6 +53,23 @@ export const Header = props => {
 		if(navbar)
 			navbar.style.backgroundColor = 'transparent'
 	}, [])
+
+	const handleConnectProfile = () => {
+		if (window.ethereum) {
+			console.log('yes')
+			window.ethereum.request({ method: 'eth_requestAccounts' })
+				.then(res => {
+					const address = res[0] // Return the address of the wallet
+					window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest']}).then(balance => {
+						console.log(balance)
+						console.log(ethers.utils.formatEther(balance))
+						setOpenConnect(false)
+					})
+				})
+		} else {
+			alert('you have no metamask installed, cant connect')
+		}
+	}
 	return (
 		<>
 			<Navbar themeMode={themeMode} id="navbar">
@@ -92,17 +117,17 @@ export const Header = props => {
 									anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
 									onClose={() => setOpenProfile(null)}
 								>
-									<MenuItem>
+									<MenuItem onClick={() => {setOpenConnect(true); setOpenProfile(null)}}>
 										<Grid container direction="row" spacing={2} alignItems="center">
 											<Grid xs="auto"><Person2Icon /></Grid>
-											<Grid xs>Profile</Grid>
+											<Grid xs><Typography size="medium" weight="medium">Profile</Typography></Grid>
 										</Grid>
 									</MenuItem>
-									<MenuItem>
+									<MenuItem onClick={handleOnChangingTheme}>
 										<Grid container direction="row" spacing={2} alignItems="center">
 											<Grid xs="auto"><DarkModeIcon /></Grid>
-											<Grid xs>Night Mode</Grid>
-											<Grid xs><Switch checked={mode === 'dark'} onChange={handleOnChangingTheme}/> </Grid>
+											<Grid xs><Typography size="medium" weight="medium">Night Mode</Typography></Grid>
+											<Grid xs><Switch checked={mode === 'dark'}/> </Grid>
 										</Grid>
 									</MenuItem>
 								</Menu>
@@ -121,6 +146,37 @@ export const Header = props => {
 					</Grid>
 				</Grid>
 			</Navbar>
+			<StyledDialog onClose={() => {setOpenConnect(false); setOpenProfile(null)}} open={openConnect}>
+				<DialogConnectContainer>
+					<Grid container justifyContent="center" direction="column">
+						<Grid xs>
+							<ConnectTittleWrapper>
+								<Typography size="lh-small" weight="medium" align="center">Connect your wallet</Typography>
+							</ConnectTittleWrapper>
+						</Grid>
+						<Grid xs>
+							<ConnectCaptionWrapper>
+								<Typography size="medium" weight="normal" color="grey" align="center">If you don't have a wallet, you can select a provider and create one now. <Typography color="primary" size="medium" weight="normal" component={Link} href="#">Learn More</Typography></Typography>
+							</ConnectCaptionWrapper>
+						</Grid>
+						<Grid xs><Divider /></Grid>
+						<List>
+							<ListItem disablePadding>
+								<ListItemButton onClick={handleConnectProfile}>
+									<Grid container direction="row" spacing={2}>
+										<Grid xs="auto">
+											<Image src={MetamaskFox} width="24px" height="24px"/>
+										</Grid>
+										<Grid xs="auto">
+											<Typography size="medium" weight="600">MetaMask</Typography>
+										</Grid>
+									</Grid>
+								</ListItemButton>
+							</ListItem>
+						</List>
+					</Grid>
+				</DialogConnectContainer>
+			</StyledDialog>
 		</>
 	)
 }
