@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import Grid from '@mui/material/Unstable_Grid2';
-import { Typography, NftRow, Card, Button } from 'components';
+import { Typography, NftRow, Card, Button, ListOfChain } from 'components';
 import { actions } from 'actions'
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection, GridTitle, SwiperBreakpoints } from './style'
+import { StyledTabpanel, ContainerTwin, SliderWrapper, NavigationSwiper, StyledIconButton, ContainerHome, BannerHome, GridSection, GridTitle, SwiperBreakpoints, StyledSelectRange, } from './style'
 import Link from '@mui/material/Link';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from 'swiper'
@@ -14,13 +14,31 @@ import "swiper/css";
 import 'swiper/css/navigation';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import MenuItem from '@mui/material/MenuItem';
 
 const Home = () => {
 	const [tab, setTab] = useState("0")
 	const handleTab = (_, newValue) => {
 		setTab(newValue)
 	}
-
+	const rangeUpdate = [
+		{
+			value: '1h',
+			label: '1h',
+		},
+		{
+			value: '6h',
+			label: '6h',
+		},
+		{
+			value: '24h',
+			label: '24h',
+		},
+		{
+			value: '7d',
+			label: '7d',
+		},
+	];
 	return (
 		<>
 			<ContainerHome xs={12} container direction="column" spacing={0}>
@@ -62,10 +80,27 @@ const Home = () => {
 				</BannerHome>
 				<GridSection xs={12}>
 					<TabContext value={tab}>
-						<TabList onChange={handleTab} textColor="inherit">
-							<Tab label={<Typography variant="h6">Trending</Typography>} value="0" />
-							<Tab label={<Typography variant="h6">Top</Typography>} value="1" />
-						</TabList>
+						<ContainerTwin container direction="row" justifyContent="space-between" alignItems="flex-end">
+							<Grid xs="auto">
+								<TabList onChange={handleTab} textColor="inherit">
+									<Tab label={<Typography variant="h6">Trending</Typography>} value="0" />
+									<Tab label={<Typography variant="h6">Top</Typography>} value="1" />
+								</TabList>
+							</Grid>
+							<Grid xs="auto" container>
+								<StyledSelectRange
+									select
+									defaultValue="24h"
+								>
+									{rangeUpdate.map((option) => (
+										<MenuItem key={option.value} value={option.value}>
+											{option.label}
+										</MenuItem>
+									))}
+								</StyledSelectRange>
+								<ListOfChain />
+							</Grid>
+						</ContainerTwin>
 						<StyledTabpanel value="0">
 							<ContainerTwin container direction="row" spacing={0}>
 								<Grid xs={6}>

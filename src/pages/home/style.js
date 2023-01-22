@@ -6,6 +6,7 @@ import HomeGradientDark from 'assets/images/home-gradient-dark.png'
 import HomeGradientLight from 'assets/images/home-gradient-light.png'
 import { colors } from 'theme'
 import IconButton from '@mui/material/IconButton';
+import { TextField } from '@mui/material';
 
 export const StyledTabpanel = styled(TabPanel)`
 	&.MuiTabPanel-root {
@@ -79,3 +80,21 @@ export const SwiperBreakpoints = {
 		slidesPerView: 2,
 	}
 }
+
+export const StyledSelectRange = styled(TextField)`
+	&.MuiFormControl-root {
+		> .MuiInputBase-root {
+			font-size: 1.6rem;
+			font-weight: 600;
+			border-radius: 12px;
+			> .MuiSelect-select {
+				padding: 11px 16px 11px 24px;
+				padding-right: 32px;
+			}
+			fieldset {
+				border-color: rgb(76, 80, 92);
+				border-width: 2px;
+			}
+		}
+	}
+`

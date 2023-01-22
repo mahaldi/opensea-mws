@@ -2,6 +2,7 @@ import { default as styledComponent } from 'styled-components'
 import { colors } from 'theme'
 import Dialog from '@mui/material/Dialog';
 import { styled } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
 
 export const Navbar = styledComponent.div`
 	padding: 0 64px;
@@ -31,3 +32,14 @@ export const ConnectCaptionWrapper = styledComponent.div`
 export const ConnectTittleWrapper = styledComponent.div`
 	padding-bottom: 24px;
 `
+export const HeaderSearchTextfield = styled(TextField)`
+	> .MuiInputBase-root {
+		border-radius: 12px;
+		> .MuiOutlinedInput-notchedOutline {
+			border-width: 2px;
+			border-color: transparent;
+			background-color: rgba(255, 255, 255, 0.12);
+		}
+	}
+`
+// border-color: rgb(76, 80, 92);

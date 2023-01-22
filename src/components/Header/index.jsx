@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from 'assets/images/opensea-logo.svg'
-import TextField from '@mui/material/TextField';
 import { Typography, Image } from 'components'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
-import { Navbar, DialogConnectContainer, StyledDialog, ConnectCaptionWrapper, ConnectTittleWrapper } from './style'
+import { Navbar, DialogConnectContainer, StyledDialog, ConnectCaptionWrapper, ConnectTittleWrapper, HeaderSearchTextfield } from './style'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
@@ -83,7 +82,7 @@ export const Header = props => {
 						</Grid>
 					</Grid>
 					<Grid xs >
-						<TextField hiddenLabel size="small" fullWidth placeholder="Search items" InputProps={{
+						<HeaderSearchTextfield hiddenLabel size="small" fullWidth placeholder="Search items, Collections, and accounts" InputProps={{
 							startAdornment: (
 								<InputAdornment position="start">
 									<SearchIcon />
