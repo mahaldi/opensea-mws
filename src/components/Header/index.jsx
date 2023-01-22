@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from 'assets/images/opensea-logo.svg'
-import TextField from '@mui/material/TextField';
 import { Typography, Image } from 'components'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
