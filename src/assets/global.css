@@ -8,3 +8,8 @@ a {
 	color: inherit !important;
 	text-decoration: none !important;
 }
+
+img[src=""],
+img:not([src]) {
+  visibility: hidden;
+}
