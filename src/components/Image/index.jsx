@@ -1,10 +1,14 @@
 import React from 'react'
-import { ImageLoader } from './style'
+import { ImageLoader, ImageWrapper } from './style'
+import BrokenImage from 'assets/images/broken-image.png'
+
 export const Image = props => {
 	const { src, alt, width, height, borderradius} = props
 	return (
 		<>
-			<ImageLoader alt={alt} src={src} width={width} height={height} borderradius={borderradius}/>
+		<ImageWrapper borderradius={borderradius}>
+			<ImageLoader alt={alt} src={src} width={width} height={height} placeholderSrc={BrokenImage} borderradius={borderradius}/>
+		</ImageWrapper>
 		</>
 	)
 }
