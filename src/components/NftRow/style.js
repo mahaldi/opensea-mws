@@ -10,5 +10,5 @@ export const ContainerNoPadding = styled(Grid)`
 	padding: 0;
 `
 export const StyledListButton = styled(ListItemButton)`
-	padding: 0;
+	padding: 1.2rem 0;
 `

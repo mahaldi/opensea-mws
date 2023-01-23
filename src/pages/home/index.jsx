@@ -15,30 +15,32 @@ import 'swiper/css/navigation';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuItem from '@mui/material/MenuItem';
+import { rangeUpdate } from 'services/utils/Constants'
+import ApiCollection from 'api'
+import { get } from 'lodash'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const Home = () => {
+const Home = (props) => {
 	const [tab, setTab] = useState("0")
+	const [range, setRange] = useState('24h')
+	const [chain, setChain] = useState(1)
+	const { general } = props
+	const trendingCollection = get(general, 'trendingCollection', { data: {}, loading: true })
+
 	const handleTab = (_, newValue) => {
 		setTab(newValue)
 	}
-	const rangeUpdate = [
-		{
-			value: '1h',
-			label: '1h',
-		},
-		{
-			value: '6h',
-			label: '6h',
-		},
-		{
-			value: '24h',
-			label: '24h',
-		},
-		{
-			value: '7d',
-			label: '7d',
-		},
-	];
+	const onChangeChain = (chainId) => {
+		const api = new ApiCollection(props)
+		api.getTrendingCollection(chainId, range)
+		setChain(chainId)
+	}
+	const onChangeRange = range => {
+		const api = new ApiCollection(props)
+		api.getTrendingCollection(chain, range)
+		setRange(range)
+	}
 	return (
 		<>
 			<ContainerHome xs={12} container direction="column" spacing={0}>
@@ -61,9 +63,9 @@ const Home = () => {
 								}}
 								loop
 							>
-								{[1,2,3,4,5,6,7].map(val => (
+								{[1, 2, 3, 4, 5, 6, 7].map(val => (
 									<SwiperSlide key={val}>
-										<Card type={3} data={{ src: 'https://i.seadn.io/s/production/3cd2b0b2-a110-4924-b91e-1f6618dc1e21.png?auto=format&w=828'}}/>
+										<Card type={3} data={{ src: 'https://i.seadn.io/s/production/3cd2b0b2-a110-4924-b91e-1f6618dc1e21.png?auto=format&w=828' }} />
 									</SwiperSlide>
 								))}
 							</Swiper>
@@ -88,36 +90,44 @@ const Home = () => {
 								</TabList>
 							</Grid>
 							<Grid xs="auto" container>
-								<StyledSelectRange
-									select
-									defaultValue="24h"
-								>
-									{rangeUpdate.map((option) => (
-										<MenuItem key={option.value} value={option.value}>
-											{option.label}
-										</MenuItem>
-									))}
-								</StyledSelectRange>
-								<ListOfChain />
+								{
+									trendingCollection.loading ? <Skeleton baseColor='#2E3137' borderRadius="20px" width="250px" height="45px" /> : (
+										<>
+											<StyledSelectRange
+												select
+												defaultValue={range}
+												value={range}
+												onChange={(event) => onChangeRange(event.target.value)}
+											>
+												{rangeUpdate.map((option) => (
+													<MenuItem key={option.value} value={option.value}>
+														{option.label}
+													</MenuItem>
+												))}
+											</StyledSelectRange>
+											<ListOfChain onChange={onChangeChain} selectedChain={chain} />
+										</>
+									)
+								}
 							</Grid>
 						</ContainerTwin>
 						<StyledTabpanel value="0">
 							<ContainerTwin container direction="row" spacing={0}>
 								<Grid xs={6}>
-									<NftRow />
+									<NftRow index={1} loading={trendingCollection.loading} data={get(trendingCollection, 'data.data', []).slice(0, 5)} />
 								</Grid>
 								<Grid xs={6}>
-									<NftRow />
+									<NftRow index={5} loading={trendingCollection.loading} data={get(trendingCollection, 'data.data', []).slice(5, 10)} />
 								</Grid>
 							</ContainerTwin>
 						</StyledTabpanel>
 						<StyledTabpanel value="1">
 							<ContainerTwin container direction="row" spacing={0}>
 								<Grid xs={6}>
-									<NftRow />
+									<NftRow loading />
 								</Grid>
 								<Grid xs={6}>
-									<NftRow />
+									<NftRow loading />
 								</Grid>
 							</ContainerTwin>
 						</StyledTabpanel>

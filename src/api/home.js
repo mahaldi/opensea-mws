@@ -1,6 +1,6 @@
 import ApiCollection from './index'
 
-export const loadHome = () => {
-	const api = new ApiCollection()
+export const loadHome = (props) => {
+	const api = new ApiCollection(props)
 	api.getTrendingCollection()
 }

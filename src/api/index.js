@@ -9,12 +9,15 @@ const instance = axios.create({
 })
 
 class ApiCollections {
-	constructor() {
+	constructor(props) {
 		this.api = instance
+		this.props = props
 	}
 
-	getTrendingCollection() {
-		return this.api.get(`collection/trending?chain_id=1&range=1h&sort=volume_desc&exchange_name=opensea&limit=20&page=1`)
+	getTrendingCollection(chainId = 1, range = '24h', page = 1, limit = 10, sort = 'volume_desc') {
+		const { loadTrendingCollection, updateTrendingCollection, failedTrendingCollection} = this.props
+		loadTrendingCollection()
+		return this.api.get(`collection/trending?chain_id=${chainId}&range=${range}&sort=${sort}&exchange_name=opensea&limit=${limit}&page=${page}`).then(res => updateTrendingCollection(res.data)).catch(failedTrendingCollection)
 	}
 }
 export default ApiCollections
