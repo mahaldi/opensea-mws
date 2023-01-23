@@ -39,6 +39,14 @@ export const StyledChainIconButton = styled(IconButton)`
 	svg {
 		width: 2rem;
 	}
+	&.active {
+		background-color: rgb(53, 56, 64);
+		svg {
+			path {
+				fill: white;
+			}
+		}
+	}
 `
 
 export const StyledChainListGrid = styled(Grid)`
