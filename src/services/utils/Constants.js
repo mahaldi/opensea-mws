@@ -132,3 +132,22 @@ export const FooterLinks = [
 		]
 	}
 ]
+
+export const rangeUpdate = [
+	{
+		value: '1h',
+		label: '1h',
+	},
+	{
+		value: '12h',
+		label: '12h',
+	},
+	{
+		value: '24h',
+		label: '24h',
+	},
+	{
+		value: '7d',
+		label: '7d',
+	},
+];
