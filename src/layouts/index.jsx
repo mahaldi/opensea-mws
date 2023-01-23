@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom'
 import { Checkpoints } from 'services'
 import { loadHome } from 'api/home'
 import { FooterWrapper, FooterContainer, Container } from './style'
+import { connect } from 'react-redux'
+import { actions } from 'actions'
 
 const Layout = (props) => {
 	const { children, mode, onChangeTheme } = props
@@ -13,20 +15,20 @@ const Layout = (props) => {
 	useEffect(() => {
 		switch (pathname) {
 			case Checkpoints.home:
-				return loadHome()
+				return loadHome(props)
 			case Checkpoints.profile:
 				console.log('loader profile')
 				break;
 			default:
 				console.log('on default loader')
 		}
-	}, [pathname])
+	}, [pathname, props])
 	return (
 		<>
 			<Container container direction="column" spacing={3}>
 				<Header mode={mode} onChangeTheme={onChangeTheme} />
 				{children}
-				<FooterWrapper>
+				<FooterWrapper container>
 					<FooterContainer>
 						<Footer />
 					</FooterContainer>
@@ -36,4 +38,4 @@ const Layout = (props) => {
 	)
 }
 
-export default Layout
+export default connect(null, actions)(Layout)
