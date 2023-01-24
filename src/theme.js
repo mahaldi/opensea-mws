@@ -66,6 +66,16 @@ const theme = (mode = 'dark') => createTheme({
 			fontSize: '3.2rem',
 			fontWeight: 600,
 		}
+	},
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 600,
+			md: 768,
+			lg: 1024,
+			xl: 1200,
+			xxl: 1600,
+		}
 	}
 });
 
