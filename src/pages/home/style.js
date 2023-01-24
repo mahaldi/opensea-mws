@@ -7,7 +7,20 @@ import HomeGradientLight from 'assets/images/home-gradient-light.png'
 import { colors } from 'theme'
 import IconButton from '@mui/material/IconButton';
 import { TextField } from '@mui/material';
-
+/*
+const Root = styled('div')(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down('md')]: {
+    backgroundColor: red[500],
+  },
+  [theme.breakpoints.up('md')]: {
+    backgroundColor: blue[500],
+  },
+  [theme.breakpoints.up('lg')]: {
+    backgroundColor: green[500],
+  },
+}));
+*/
 export const StyledTabpanel = styled(TabPanel)`
 	&.MuiTabPanel-root {
 		padding-left: 0;
@@ -19,10 +32,21 @@ export const ContainerTwin = styled(Grid)`
 	padding: 0;
 `
 
-export const GridSection = styled(Grid)`
-	padding-left: 64px;
-	padding-right: 64px;
-`
+export const GridSection = styled(Grid)(({ theme }) => ({
+	[theme.breakpoints.up('xxl')]: {
+		padding: '0 64px',
+	},
+	[theme.breakpoints.between('xl', 'xxl')]: {
+		padding: '0 32px',
+	},
+	[theme.breakpoints.between('lg', 'xl')]: {
+		padding: '0 16px',
+	},
+	[theme.breakpoints.between('xs', 'md')]: {
+		padding: '0 8px',
+	},
+}))
+
 export const GridTitle = styled(Grid)`
 	margin-top: 5.6rem;
 	margin-bottom: 4rem;
