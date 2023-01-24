@@ -1,4 +1,4 @@
-DEMO: https://63c7a157ac642e42d15f3f72--quiet-pastelito-1ad9ae.netlify.app/
+DEMO: https://quiet-pastelito-1ad9ae.netlify.app/
 
 # Getting Started with Create React App
 
