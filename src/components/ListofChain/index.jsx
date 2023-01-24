@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React  from 'react'
 import { ArbitrumIcon, Avalance, BNBChain, Ethereum, Klaytn, Optimism, Polygon, Solana, StyledChainListGrid, StyledChainIconButton } from './style'
 import Tooltip from '@mui/material/Tooltip';
 

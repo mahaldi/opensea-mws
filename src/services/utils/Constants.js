@@ -151,3 +151,18 @@ export const rangeUpdate = [
 		label: '7d',
 	},
 ];
+
+export const GridPaddingWrapper = (theme) => ({
+	[theme.breakpoints.up('xxl')]: {
+		padding: '0 64px',
+	},
+	[theme.breakpoints.between('xl', 'xxl')]: {
+		padding: '0 32px',
+	},
+	[theme.breakpoints.between('lg', 'xl')]: {
+		padding: '0 16px',
+	},
+	[theme.breakpoints.between('xs', 'md')]: {
+		padding: '0 8px',
+	},
+})

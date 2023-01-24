@@ -10,6 +10,8 @@ import { Provider } from 'react-redux'
 import initialState from 'redux/initialState'
 import configureStore from 'redux/configureStore'
 import './assets/global.css'
+import { Checkpoints } from 'services/Checkpoints'
+import CollectionDetail from './pages/collection-detail';
 
 const store = configureStore(initialState)
 
@@ -26,8 +28,9 @@ function App() {
 					<CssBaseline />
 					<Layout mode={mode} onChangeTheme={onChangeTheme}>
 						<Routes>
-							<Route path="/" exact element={<Home />} />
-							<Route path="/profile" exact element={<Profile />} />
+							<Route path={Checkpoints.home} exact element={<Home />} />
+							<Route path={Checkpoints.profile} exact element={<Profile />} />
+							<Route path={Checkpoints.collectionDetail} exact element={<CollectionDetail />} />
 						</Routes>
 					</Layout>
 				</ThemeProvider>
