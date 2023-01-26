@@ -30,9 +30,9 @@ export const NftRow = props => {
 				}
 				<SkeletonTheme baseColor='#2E3137'>
 					<List component={Grid} container>
-						{(loading ? [1, 2, 3, 4, 5] : data).map((val, i) => {
+						{(loading ? Array.from(new Array(5)) : data).map((val, i) => {
 							const volume = bigDecimal.round(get(val, 'volume'), 2)
-							const floorPrice = bigDecimal.round(get(val, 'floor_price'), 2)
+							const floorPrice = bigDecimal.round(get(val, 'last_floor_price'), 2)
 							const name = get(val, 'collection.name', 'no name')
 							const src = get(val, 'collection.image_url')
 							const contractAddress = get(val, 'contract_address')

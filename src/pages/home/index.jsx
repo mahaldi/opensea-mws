@@ -63,8 +63,8 @@ const Home = (props) => {
 								}}
 								loop
 							>
-								{[1, 2, 3, 4, 5, 6, 7].map(val => (
-									<SwiperSlide key={val}>
+								{Array.from(new Array(5)).map((_, i) => (
+									<SwiperSlide key={i}>
 										<Card type={3} data={{ src: 'https://i.seadn.io/s/production/3cd2b0b2-a110-4924-b91e-1f6618dc1e21.png?auto=format&w=828' }} />
 									</SwiperSlide>
 								))}
@@ -117,7 +117,7 @@ const Home = (props) => {
 									<NftRow index={1} loading={trendingCollection.loading} data={get(trendingCollection, 'data.data', []).slice(0, 5)} />
 								</Grid>
 								<Grid xs={6}>
-									<NftRow index={5} loading={trendingCollection.loading} data={get(trendingCollection, 'data.data', []).slice(5, 10)} />
+									<NftRow index={6} loading={trendingCollection.loading} data={get(trendingCollection, 'data.data', []).slice(5, 10)} />
 								</Grid>
 							</ContainerTwin>
 						</StyledTabpanel>
